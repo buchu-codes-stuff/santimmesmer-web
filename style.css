@@ -30,7 +30,7 @@ h2 {
   --sbh-cta-bg: #1f2937;
   --sbh-cta-hover-bg: #374151;
   --sbh-cta-text-color: #ffffff;
-  --fsi-bg-image: url("https://server.wallpaperalchemy.com/storage/wallpapers/742/arch-linux-minimal-blue-aesthetic-4k-wallpaper.jpg");
+  --fsi-bg-image: url("https://thumbs.dreamstime.com/b/ethiopian-highlands-sunrise-wide-angle-view-simien-mountains-valleys-tigray-region-hit-first-golden-54248387.jpg");
   --fsi-min-height: 100vh;
   --fsi-padding: 2rem 1.5rem;
   --fsi-text-color: #ffffff;
@@ -400,7 +400,7 @@ body {
   height: var(--header-height-mobile);
   padding: 0 1rem;
   background: #fff;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid white;
 }
 .page-content-wrapper {
   width: 100%;
