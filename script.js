@@ -67,7 +67,6 @@ async function Login() {
     );
 
     const data2 = await res2.json();
-    const recipt_ammount = data2.length;
     document.getElementById("body").innerHTML = `
     <div class="app-layout">
       <nav class="sidebar" id="app-sidebar">
@@ -144,7 +143,7 @@ async function Login() {
 
 <br>
 <center>
-          <div class="card text-white" style="height: 9rem; margin-right: 40px; border-radius: 100px;" >
+          <div class="card text-white" style="height: 9rem; margin-right: 20px; border-radius: 100px;" >
   <!-- The background image -->
   <img src="assets/tests/image copy.png" class="card-img" alt="Background Image" height="149rem">
   <div class="card-body card-img-overlay d-flex flex-column justify-content-center" style="margin-left: 30px; margin-top: 10px;">
@@ -159,13 +158,100 @@ async function Login() {
 </center>
 </br>
 <br>
+      <h2><strong>My Receipts</strong></h2>
+      <br>
+      <div id="receipts"></div>
         </main>
     </div>
     `;
     document.getElementById("mod").innerText =
       `${data[0].first_name}'s Portal - ሳንቲም መስመር | ገንዘብ መላክ ፣ ማስቀመጥ እና መቀበል ቀላል ነው።`;
     console.log(data);
+    let pthml = ``;
+    data2.forEach((recipt)=>{
+     pthml += `<center>
 
+          <div
+            class="card"
+            style="
+              margin-left: 20px;
+              margin-right: 20px;
+              text-align: left;
+              margin-bottom: 10px;
+              box-shadow:
+                0 4px 8px
+                rgba(0, 0, 0, 0.1);
+            "
+          >
+
+            <div class="card-body">
+
+              <div class="flex">
+
+                <div>
+
+                  <h4
+                    class="btn btn-info"
+                    style="
+                      margin-top: 5px;
+                      width: 52px;
+                      height: 52px;
+                      font-size: 24px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      color: #5899E2;
+                      background-color: #E8F3FF;
+                      border-color: #65AFFF;
+                      cursor: auto;
+                      margin-right: 10px;
+                    "
+                  >
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-receipt" viewBox="0 0 16 16">
+  <path d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v12a.5.5 0 0 1-.053.224l-.5 1a.5.5 0 0 1-.8.13L13 14.707l-.646.647a.5.5 0 0 1-.708 0L11 14.707l-.646.647a.5.5 0 0 1-.708 0L9 14.707l-.646.647a.5.5 0 0 1-.708 0L7 14.707l-.646.647a.5.5 0 0 1-.708 0L5 14.707l-.646.647a.5.5 0 0 1-.708 0L3 14.707l-.646.647a.5.5 0 0 1-.801-.13l-.5-1A.5.5 0 0 1 1 14V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27m.217 1.338L2 2.118v11.764l.137.274.51-.51a.5.5 0 0 1 .707 0l.646.647.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.509.509.137-.274V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0z"/>
+  <path d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m8-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5"/>
+</svg>
+
+                  </h4>
+
+                </div>
+
+                <div
+                  style="margin-top: 5px;"
+                >
+
+                  <h5
+                    class="card-title"
+                  >
+
+                    <strong>
+                      ${esc(recipt.prod_name || "Prescription")}
+
+                      •
+                    </strong>
+
+                    ${recipt.price || "No time set"}
+
+                  </h5>
+
+                  <h6
+                    class="card-text"
+                  >
+                    Bought By You
+                  </h6>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </center>`;
+    })
+    document.getElementById("receipts").innerHTML = pthml;
     // FIX: the sidebar only exists now, so attach its listeners now
     setupSidebar();
   } catch {
@@ -354,7 +440,11 @@ async function Dashboard() {
     }
 
     // FIX: assign the global id (before, `let id` created a new local variable)
+    const res2 = await fetch(
+      `https://abrvlqymzaqpmgfktwfr.supabase.co/rest/v1/recipts?apikey=sb_publishable_6YWtr3aPR8V43iInTNwnCw_jEfYrInS&buy_by=eq.${id}`,
+    );
 
+    const data2 = await res2.json();
     document.getElementById("content").innerHTML = `
           <br>
           <h1><strong>Welcome, ${data[0].first_name}👋</strong></h1>
@@ -377,11 +467,99 @@ async function Dashboard() {
 </center>
 </br>
 <br>
+      <h2><strong>My Receipts</strong></h2>
+      <br>
+      <div id="receipts"></div>
+        </main>
+    </div>
     `;
     document.getElementById("mod").innerText =
       `${data[0].first_name}'s Portal - ሳንቲም መስመር | ገንዘብ መላክ ፣ ማስቀመጥ እና መቀበል ቀላል ነው።`;
-    console.log(data);
+    let pthml = ``;
+    data2.forEach((recipt)=>{
+     pthml += `<center>
 
+          <div
+            class="card"
+            style="
+              margin-left: 20px;
+              margin-right: 20px;
+              text-align: left;
+              margin-bottom: 10px;
+              box-shadow:
+                0 4px 8px
+                rgba(0, 0, 0, 0.1);
+            "
+          >
+
+            <div class="card-body">
+
+              <div class="flex">
+
+                <div>
+
+                  <h4
+                    class="btn btn-info"
+                    style="
+                      margin-top: 5px;
+                      width: 52px;
+                      height: 52px;
+                      font-size: 24px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      color: #5899E2;
+                      background-color: #E8F3FF;
+                      border-color: #65AFFF;
+                      cursor: auto;
+                      margin-right: 10px;
+                    "
+                  >
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-receipt" viewBox="0 0 16 16">
+  <path d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v12a.5.5 0 0 1-.053.224l-.5 1a.5.5 0 0 1-.8.13L13 14.707l-.646.647a.5.5 0 0 1-.708 0L11 14.707l-.646.647a.5.5 0 0 1-.708 0L9 14.707l-.646.647a.5.5 0 0 1-.708 0L7 14.707l-.646.647a.5.5 0 0 1-.708 0L5 14.707l-.646.647a.5.5 0 0 1-.708 0L3 14.707l-.646.647a.5.5 0 0 1-.801-.13l-.5-1A.5.5 0 0 1 1 14V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27m.217 1.338L2 2.118v11.764l.137.274.51-.51a.5.5 0 0 1 .707 0l.646.647.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.509.509.137-.274V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0z"/>
+  <path d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m8-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5"/>
+</svg>
+
+                  </h4>
+
+                </div>
+
+                <div
+                  style="margin-top: 5px;"
+                >
+
+                  <h5
+                    class="card-title"
+                  >
+
+                    <strong>
+                      ${esc(recipt.prod_name || "Prescription")}
+
+                      •
+                    </strong>
+
+                    ${recipt.price || "No time set"}
+
+                  </h5>
+
+                  <h6
+                    class="card-text"
+                  >
+                    Bought By You
+                  </h6>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </center>`;
+    })
+    document.getElementById("receipts").innerHTML = pthml;
     // FIX: the sidebar only exists now, so attach its listeners now
     setupSidebar();
   } catch {
@@ -569,7 +747,7 @@ async function identity() {
 
               <h1>
                 <strong>
-                  ${account.phone || "Not available"}
+                  ${"0" + account.phone || "Not available"}
                 </strong>
               </h1>
 
@@ -1065,11 +1243,14 @@ async function payProductLookup(scanned) {
       : "";
     pendingPayment = {
       type: "product",
+      productId: prod.id,
       toId: prod.prod_by,
       headline: prod.prod_name,
       subline: seller ? `Sold by ${seller}` : "",
       img: prod.prod_img,
-      amount: round2(prod.prod_price),
+      unitPrice: round2(prod.prod_price), // NEW: price of one unit
+      qty: 1, // NEW: quantity, starts at 1
+      amount: round2(prod.prod_price), // total to pay (price x qty)
       receiptName: prod.prod_name,
     };
     payConfirmScreen();
@@ -1111,7 +1292,17 @@ function payConfirmScreen() {
           }
           <h4><strong>${esc(p.headline)}</strong></h4>
           <p>${esc(p.subline)}</p>
-          <h1><strong>${money(p.amount)} ETB</strong></h1>
+          ${
+            p.type === "product"
+              ? `<br><div style="display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:6px;">
+                   <button class="btn btn-outline-dark" style="border-radius:100%; onclick="payChangeQty(-1)">&minus;</button>
+                   <strong id="pay-qty" style="font-size:1.5rem; min-width:2rem;">${p.qty}</strong>
+                   <button class="btn btn-outline-dark" style="border-radius:100%;" onclick="payChangeQty(1)">+</button>
+                 </div>
+                 <p style="margin-top: 20px;">${money(p.unitPrice)} ETB each</p><br>`
+              : ""
+          }
+          <h1><strong id="pay-total">${money(p.amount)} ETB</strong></h1>
           <br>
           <input type="password" inputmode="numeric" class="form-control mb-2"
             id="pay-pin" placeholder="Enter your PIN" style="text-align:center;">
@@ -1121,6 +1312,20 @@ function payConfirmScreen() {
       </div>
     </center>
   `;
+}
+
+// NEW: change the quantity and update the total, button and receipt name
+function payChangeQty(delta) {
+  const p = pendingPayment;
+  if (!p || p.type !== "product") return;
+
+  p.qty = Math.min(99, Math.max(1, p.qty + delta));
+  p.amount = round2(p.unitPrice * p.qty);
+  p.receiptName = p.qty > 1 ? `${p.headline} x${p.qty}` : p.headline;
+
+  document.getElementById("pay-qty").textContent = p.qty;
+  document.getElementById("pay-total").textContent = `${money(p.amount)} ETB`;
+  document.getElementById("pay-btn").textContent = `Pay ${money(p.amount)} ETB`;
 }
 
 async function payExecute() {
@@ -1210,7 +1415,7 @@ function paySuccessScreen(p, result) {
     <center>
       <div class="card fade-in" style="max-width:25rem; border-radius:30px;">
         <div class="card-body p-4">
-          <div style="${PAY_TILE_OK} margin:0 auto 1rem;">${payIcon("check")}</div>
+          <div style="color: green; margin:0 auto 1rem;" width="300px">${payIcon("check")}</div>
           <h2><strong>Payment sent</strong></h2>
           <br>
           <h1><strong>${money(p.amount)} ETB</strong></h1>
@@ -1223,7 +1428,7 @@ function paySuccessScreen(p, result) {
           }
           <br>
           <button class="btn btn-success w-100 mb-2" onclick="Dashboard()">Done</button>
-          <button class="btn btn-outline-primary w-100" onclick="receipts()">View receipts</button>
+          <button class="btn btn-outline-dark w-100" onclick="receipts()">View receipts</button>
         </div>
       </div>
     </center>
