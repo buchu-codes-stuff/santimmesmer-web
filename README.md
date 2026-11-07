@@ -1,3 +1,6 @@
+
+[![Demo VIDEO]](https://raw.githubusercontent.com/buchu-codes-stuff/santimmesmer-web/refs/heads/main/Santim-Mesmer-Website-Video.mp4)
+
 # ሳንቲም መስመር (Santim Mesmer)
 
 > ገንዘብ መላክ ፣ ማስቀመጥ እና መቀበል ቀላል ነው።
